@@ -1,14 +1,67 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
-<ul>
-  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-</ul>
-<p>To help you get started, we've also set up:</p>
-<ul>
-  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
-</ul>
-<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>
+<div class="jumbotron">
+  <img src="../assets/images/logo.png" class="logo-img"  />
+  <h2>Example of Supplier Status Demo</h2>
+</div>
+<button type="button" (click)="setValue(); checkValue()" class="btn btn-primary">Submit Request</button>
+
+<h3>{{progressTitle}}</h3>
+<div class="panel panel-primary">
+  <div class="panel-heading">Progress Status</div>
+  <div class="panel-body">
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressValue">{{progressValue}}</div>
+    </div>
+    <div *ngIf="showMessage" class="approval"><img src="../assets/images/approval.png" class="complete-img" /><h3>Switch Completed!</h3></div>
+  </div>
+</div>
+<div class="row">
+  <div class="my-col-count-style">
+    <div class="panel panel-default">
+      <div class="panel-heading">Gaining Supplier</div>
+      <div class="panel-body">
+        <div class="progress-title">
+          <p *ngIf="!forecasts"><em>Loading...</em></p>
+
+          <table class='table' *ngIf="forecasts">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let forecast of forecasts">
+                <td>{{ forecast.dateFormatted }}</td>
+                <td>{{ forecast.temperatureC }}</td>
+                <td>{{ forecast.temperatureF }}</td>
+                <td>{{ forecast.summary }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Gaining Shipper</div>
+      <div class="panel-body">
+        <div class="progress-title">{{gainingShipperLog}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Losing Shipper</div>
+      <div class="panel-body">
+        <div class="progress-title">{{losingShipperLog}}</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Losing Supplier</div>
+      <div class="panel-body">
+        <div class="progress-title">{{losingSupplierLog}}</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
