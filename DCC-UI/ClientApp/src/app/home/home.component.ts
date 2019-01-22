@@ -1,40 +1,22 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { RegistrationRequestService } from '../services/registration-request.service';
+import { RegistrationRequest } from '../domain/registration-requests';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  progressTitle = 'Switch Request Received';
-  progressValue = 10;
-  showMessage: boolean = false;
-  gainingSupplierLog = 'Gaining Supplier request switch';
-  gainingShipperLog = 'Gaining Shipper notified';
-  losingShipperLog = 'Losing Shipper notified';
-  losingSupplierLog = 'Losing Supplier notified';
-  public forecasts: WeatherForecast[];
+export class HomeComponent implements OnInit {
+  registrationRequests: RegistrationRequest[];
 
-  setValue(progressValue: number, progressTitle: string): void {
-    this.progressValue = 100;
-    this.progressTitle = "Status has changed";
-    this.gainingSupplierLog = 'Supplier Switch complete'
-  }
+  constructor(private regRequestService: RegistrationRequestService){}
 
-  checkValue(progressValue: number) {
-    if (this.progressValue == 100) {
-      this.showMessage = true;
-    }
-    else {
-      this.showMessage = false;
-    }
-  }
-
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  ngOnInit(){
+    this.regRequestService.getRegistrationRequests().subscribe(regRequests => {
+      this.registrationRequests = regRequests;
+      console.log(this.registrationRequests);
+      });
   }
 }
 
