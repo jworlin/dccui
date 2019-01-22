@@ -62,5 +62,9 @@ export class ProgressComponent implements OnInit {
     }
   }
 
+  backToHome() {
+    this.router.navigate(['']);
+  }
+
 
 }
