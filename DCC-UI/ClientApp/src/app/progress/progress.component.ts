@@ -29,6 +29,7 @@ export class ProgressComponent implements OnInit {
           this.regRequestRecord = regRequestRecord;
           console.log('id' + this.regRequestRecord);
           this.checkStatus(status);
+          
         });
       });
     
@@ -49,20 +50,17 @@ export class ProgressComponent implements OnInit {
       default:
         this.progressValue = 0;
     }
-
-   //if (this.regRequestRecord.status == 'Rejected') {
-   //   alert('progress status' + this.regRequestRecord.status);
-   //   this.progressValue = 0;
-   // }
-   // else if (this.regRequestRecord.status == 'Secured') {
-   //   alert('progress status' + this.regRequestRecord.status);
-   //   this.progressValue = 50;
-   // }
-   // else (this.regRequestRecord.status == 'Confirmed') {
-   //   alert('progress status' + this.regRequestRecord.status);
-   //   this.progressValue = 100;
-   // }
+    this.checkValue(this.progressValue);
   };
+
+  checkValue(progressValue: number) {
+    if (this.progressValue == 100) {
+      this.showMessage = true;
+    }
+    else {
+      this.showMessage = false;
+    }
+  }
 
 
 }

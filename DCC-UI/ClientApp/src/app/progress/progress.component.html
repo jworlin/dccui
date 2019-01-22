@@ -6,6 +6,7 @@
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressValue">{{progressValue}}</div>
     </div>
     <div class="status"><h4> Current Status: {{regRequestRecord.status}}</h4></div>
+    <div class="last-checked"><h5>Created Date: {{regRequestRecord.createdDate}}</h5></div>
     <div *ngIf="showMessage" class="approval"><img src="../assets/images/approval.png" class="complete-img" /><h3>Switch Completed!</h3></div>
   </div>
 </div>
