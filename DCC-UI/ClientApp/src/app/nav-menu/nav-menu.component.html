@@ -10,7 +10,7 @@
             <a class='navbar-brand' [routerLink]='["/"]'>DCC_UI</a>
         </div>
         <div class='clearfix'></div>
-        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
+        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'> 
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
                     <a [routerLink]='["/"]' (click)='collapse()'>
