@@ -25,7 +25,7 @@
               <td>{{ regRequest.data }}</td>
               <td>{{ regRequest.id }}</td>
               <td>{{ regRequest.interveneDate }}</td>
-              <td>{{ regRequest.status }}</td>
+              <!--<td>{{ regRequest.status }}</td>-->
               <td><button class="primary-button" (click)="showRequest();" >View Request</button></td>
             </tr>
           </tbody>
@@ -33,7 +33,5 @@
       </div>
     </div>
   </div>
-<div class="show-request" [ngClass]="status ? 'hidden' : 'visible'">
-  <app-request></app-request>
-</div>
+
  

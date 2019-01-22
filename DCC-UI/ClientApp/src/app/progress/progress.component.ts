@@ -3,11 +3,11 @@ import { RegistrationRequestService } from '../services/registration-request.ser
 import { RegistrationRequest } from '../domain/registration-requests';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-progress',
+  templateUrl: './progress.component.html',
+  styleUrls: ['./progress.component.css']
 })
-export class HomeComponent implements OnInit {
+export class ProgressComponent implements OnInit {
   registrationRequests: RegistrationRequest[];
 
   constructor(private regRequestService: RegistrationRequestService){}
@@ -20,10 +20,5 @@ export class HomeComponent implements OnInit {
   }
 }
 
-interface WeatherForecast {
-  dateFormatted: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+
 

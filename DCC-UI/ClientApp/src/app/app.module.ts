@@ -8,11 +8,19 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegistrationRequestService } from './services/registration-request.service';
+import { CounterComponent } from "./counter/counter.component";
+import { FetchDataComponent } from "./fetch-data/fetch-data.component";
+import { NavMenuComponent } from "./nav-menu/nav-menu.component";
+import { ProgressComponent } from "./progress/progress.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CounterComponent,
+    FetchDataComponent,
+    NavMenuComponent,
+    ProgressComponent
   ],
   imports: [HttpModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
