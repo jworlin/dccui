@@ -7,7 +7,7 @@ describe('CounterComponent', () => {
   let fixture: ComponentFixture<CounterComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    TestBed.configureTestingModule({ 
       declarations: [ CounterComponent ]
     })
     .compileComponents();
