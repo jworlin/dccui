@@ -1,8 +1,4 @@
-<div class="jumbotron">
-  <img src="../assets/images/logo.png" class="logo-img" />
-  <h2>Example of Supplier Status Demo</h2>
-</div>
-<!--<button type="button" (click)="setValue(); checkValue()" class="btn btn-primary">Submit Request</button>-->
+
 <div class="panel panel-primary">
   <div class="panel-heading">Current Registration Requests</div>
   <div class="panel-body">
@@ -25,8 +21,8 @@
               <td>{{ regRequest.data }}</td>
               <td>{{ regRequest.id }}</td>
               <td>{{ regRequest.interveneDate }}</td>
-              <!--<td>{{ regRequest.status }}</td>-->
-              <td><button class="primary-button" (click)="showRequest();" >View Request</button></td>
+              <td>{{ regRequest.status }}</td>
+              <td><button class="primary-button" (click)="showRequest(regRequest.id);" >View Request</button></td>
             </tr>
           </tbody>
         </table>
