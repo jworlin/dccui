@@ -42,6 +42,44 @@ namespace DCC_UI.Controllers
                 }
             };
         }
+
+        [HttpGet("[action]/{id}")]
+        public IEnumerable<Audit> Audit(string id)
+        {
+            return new List<Audit>
+            {
+                new Audit
+                {
+                    RegistrationRequestId = DateTime.Now.ToString("g"),
+                    Data = "{\"registration-request-id\": \"1\", \"other-data\": \"Jason\"}",
+                    Id = "1",
+                    LogicAppId = DateTime.Now.AddDays(1).ToString("g"),
+                    Status = "JustTesting",
+                    Type = "",
+                    EventAt = DateTime.Now.AddDays(3).ToString("g")
+                },
+                new Audit
+                {
+                    RegistrationRequestId = DateTime.Now.AddDays(-1).ToString("g"),
+                    Data = "{\"registration-request-id\": \"2\", \"other-data\": \"Jason 2\"}",
+                    Id = "1",
+                    LogicAppId = DateTime.Now.AddDays(2).ToString("g"),
+                    Status = "JustTesting 2",
+                    Type = "",
+                    EventAt = DateTime.Now.AddDays(3).ToString("g")
+                },
+                new Audit
+                {
+                    RegistrationRequestId = DateTime.Now.AddDays(-2).ToString("g"),
+                    Data = "{\"registration-request-id\": \"3\", \"other-data\": \"Jason 3\"}",
+                    Id = "1",
+                    LogicAppId = DateTime.Now.AddDays(3).ToString("g"),
+                    Status = "JustTesting 3",
+                    Type = "",
+                    EventAt = DateTime.Now.AddDays(3).ToString("g")
+                }
+            };
+        }
     }
 
     public class RegistrationRequests
@@ -51,5 +89,16 @@ namespace DCC_UI.Controllers
         public string CreatedDate { get; set; }
         public string Status { get; set; }
         public string InterveneDate { get; set; }
+    }
+
+    public class Audit
+    {
+        public string Id { get; set; }
+        public string RegistrationRequestId { get; set; }
+        public string LogicAppId { get; set; }
+        public string Data { get; set; }
+        public string Status { get; set; }
+        public string Type { get; set; }
+        public string EventAt { get; set; }
     }
 }
