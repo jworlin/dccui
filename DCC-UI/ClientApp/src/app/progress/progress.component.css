@@ -1,0 +1,38 @@
+.progress {
+  text-align: left;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.panel {
+  margin-top: 10px;
+}
+
+button {
+  margin-right: 5px;
+}
+
+.approval {
+  text-align: center;
+}
+
+.my-col-count-style {
+  column-count: 2;
+  column-gap: 15px;
+}
+
+.my-col-count-style .panel {
+  display: inline-block;
+  width: 100%;
+}
+
+.logo-img {
+  width: 175px;
+  height: 56px;
+}
+
+.complete-img {
+  width:32px;
+  height:32px;
+}
