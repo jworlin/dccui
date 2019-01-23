@@ -36,3 +36,7 @@ button {
   width:32px;
   height:32px;
 }
+
+button {
+  margin-bottom:10px;
+}

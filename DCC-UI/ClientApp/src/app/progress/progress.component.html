@@ -6,8 +6,34 @@
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressValue">{{regRequestRecord.status}}</div>
     </div>
     <div class="status"><h4> Current Status: {{regRequestRecord.status}}</h4></div>
-    <div class="last-checked"><h5>Audit: {{auditRequests}} </h5></div>
     <div *ngIf="showMessage" class="approval"><img src="../assets/images/approval.png" class="complete-img" /><h3>Switch Completed!</h3></div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">Audit trail</div>
+  <div class="panel-body">
+    <table class='table' *ngIf="auditRequests">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Request ID</th>
+          <th>Stage</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let auditRequest of auditRequests">
+          <td>{{ auditRequest.id }}</td>
+          <td>{{ auditRequest.registrationRequestId }}</td>
+          <td>{{ auditRequest.logicAppId }}</td>
+          <td>{{ auditRequest.status }}</td>
+          <td>{{ auditRequest.data }}</td>
+          <td>{{ auditRequest.eventAt }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 <button class="btn btn-primary" (click)="backToHome();">View All Requests</button>

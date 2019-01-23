@@ -3,6 +3,7 @@ import { RegistrationRequestService } from '../services/registration-request.ser
 import { RegistrationRequest } from '../domain/registration-requests';
 import { Audit } from '../domain/audit';
 import { ActivatedRoute, Router } from '@angular/router';
+import { audit } from 'rxjs/operators';
 
 
 @Component({
@@ -23,11 +24,11 @@ export class ProgressComponent implements OnInit {
       .subscribe(params => {
         this.regRequestService.getAuditRequests(params['id']).subscribe(auditRequests => {
           this.auditRequests = auditRequests;
+          console.log(auditRequests);
         });
         this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRequestRecord => {
           this.regRequestRecord = regRequestRecord;
           this.checkStatus(status);
-          alert(this.regRequestRecord);
         });
       });
     

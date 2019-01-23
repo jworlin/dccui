@@ -29,7 +29,7 @@ namespace DCC_UI.Controllers
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var requests = connection.Query<Audit>("SELECT * FROM Audits WHERE RegistrationRequestId = @id", new {id});
+                var requests = connection.Query<Audit>("SELECT * FROM Audits WHERE RegistrationRequestId = @id ORDER BY eventAt DESC", new {id});
                 return requests;
             }
         }
