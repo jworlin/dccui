@@ -33,5 +33,38 @@ namespace DCC_UI.Controllers
                 return requests;
             }
         }
+
+
+		[HttpGet("{id}")]
+		public RegistrationRequests GetOne (string id)
+		{
+			using (var connection = new SqlConnection(ConnectionString))
+			{
+				var requests = connection.Query<RegistrationRequests>("SELECT * FROM RegistrationRequests WHERE Id = @id", new { id });
+				return requests.Single();
+			}
+		}
+
+	}
+
+    public class RegistrationRequests
+    {
+        public string Id { get; set; }
+        public string Data { get; set; }
+        public string CreatedDate { get; set; }
+        public string Status { get; set; }
+        public string InterveneDate { get; set; }
+    }
+
+    public class Audit
+    {
+        public string Id { get; set; }
+        public string RegistrationRequestId { get; set; }
+        public string LogicAppId { get; set; }
+        public string Data { get; set; }
+        public string Status { get; set; }
+        public string Type { get; set; }
+        public string EventAt { get; set; }
+
     }
 }

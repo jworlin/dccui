@@ -1,12 +1,15 @@
-<!--<h3>{{progressTitle}}</h3>
+<h3>Request Id: {{regRequestRecord.id}}</h3>
 <div class="panel panel-primary">
   <div class="panel-heading">Progress Status</div>
   <div class="panel-body">
     <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressValue">{{progressValue}}</div>
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressValue">{{regRequestRecord.status}}</div>
     </div>
+    <div class="status"><h4> Current Status: {{regRequestRecord.status}}</h4></div>
+    <div class="last-checked"><h5>Audit: {{auditRequests}} </h5></div>
     <div *ngIf="showMessage" class="approval"><img src="../assets/images/approval.png" class="complete-img" /><h3>Switch Completed!</h3></div>
   </div>
-</div>-->
+</div>
+<button class="btn btn-primary" (click)="backToHome();">View All Requests</button>
 
 

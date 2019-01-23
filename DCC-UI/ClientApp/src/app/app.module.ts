@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -28,6 +28,9 @@ import { ProgressComponent } from "./progress/progress.component";
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' }
+    ]),
+    RouterModule.forChild([
+      { path: 'app-progress/:id', component: ProgressComponent }
     ])
   ],
   providers: [RegistrationRequestService],
