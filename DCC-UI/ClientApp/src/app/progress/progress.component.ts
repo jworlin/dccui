@@ -23,13 +23,11 @@ export class ProgressComponent implements OnInit {
       .subscribe(params => {
         this.regRequestService.getAuditRequests(params['id']).subscribe(auditRequests => {
           this.auditRequests = auditRequests;
-          console.log(this.auditRequests);
         });
         this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRequestRecord => {
           this.regRequestRecord = regRequestRecord;
-          console.log('id' + this.regRequestRecord);
           this.checkStatus(status);
-          
+          alert(this.regRequestRecord);
         });
       });
     
@@ -38,14 +36,29 @@ export class ProgressComponent implements OnInit {
   checkStatus(status: string) {
     var status = this.regRequestRecord.status;
     switch (status) {
+      case 'Submitted':
+        this.progressValue = 0;
+        break;
+      case 'Validated':
+        this.progressValue = 25;
+        break;
+      case 'Confirmed':
+        this.progressValue = 50;
+        break;
+      case 'Secured':
+        this.progressValue = 75;
+        break;
+      case 'Completed':
+        this.progressValue = 100;
+        break;
       case 'Rejected':
         this.progressValue = 0;
         break;
-      case 'Secured':
-        this.progressValue = 50;
+      case 'Withdrawn':
+        this.progressValue = 0;
         break;
-      case 'Confirmed':
-        this.progressValue = 100;
+      case 'Annulled':
+        this.progressValue = 0;
         break;
       default:
         this.progressValue = 0;
