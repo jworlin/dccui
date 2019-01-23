@@ -34,6 +34,7 @@ namespace DCC_UI.Controllers
             }
         }
 
+
 		[HttpGet("{id}")]
 		public RegistrationRequests GetOne (string id)
 		{
@@ -64,5 +65,6 @@ namespace DCC_UI.Controllers
         public string Status { get; set; }
         public string Type { get; set; }
         public string EventAt { get; set; }
+
     }
 }
