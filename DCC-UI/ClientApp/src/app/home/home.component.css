@@ -44,3 +44,8 @@ button {
 .visible {
   visibility:visible;
 }
+
+.table-data {
+  word-break: break-all;
+  
+}
