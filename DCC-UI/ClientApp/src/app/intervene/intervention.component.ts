@@ -18,7 +18,8 @@ export class InterventionComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitRequest() {
-    this.interventionService.intervene(this.intervention);
+  SubmitForm() {
+    this.interventionService.intervene(this.intervention).subscribe(res => {
+    });
   }
 }
