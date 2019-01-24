@@ -22,6 +22,7 @@ export class InterventionComponent implements OnInit {
       .subscribe(params => {
         this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRequestRecord => {
           this.regRequestRecord = regRequestRecord;
+          this.intervention.RegistrationRequestId = this.regRequestRecord.id;
         });
       });
   }

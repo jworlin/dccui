@@ -16,6 +16,7 @@ export class ProgressComponent implements OnInit {
   progressValue = this.progressValue;
   showMessageGreen: boolean = false;
   showMessageRed: boolean = false;
+  showButton: boolean = true;
   progressBarColour = this.progressBarColour;
 
   constructor(private regRequestService: RegistrationRequestService, private auditService: AuditService, private route: ActivatedRoute, private router: Router) { }
@@ -80,9 +81,11 @@ export class ProgressComponent implements OnInit {
   checkValue(progressValue: number) {
     if (this.progressValue == 100) {
       this.showMessageGreen = true;
+      this.showButton = false;
     }
     else if (this.progressValue == 101) {
       this.showMessageRed = true;
+      this.showButton = false;
     }
     else {
       this.showMessageRed = false;
