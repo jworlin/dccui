@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Intervention } from './intervention';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InterventionService } from './intervention.service';
+import { RegistrationRequestService } from '../services/registration-request.service';
+import { RegistrationRequest } from '../domain/registration-requests';
 
 @Component({
   selector: 'intervention-request',
@@ -9,13 +11,19 @@ import { InterventionService } from './intervention.service';
   styleUrls: ['./intervention.component.css']
 })
 export class InterventionComponent implements OnInit {
-  
+    regRequestRecord: RegistrationRequest;
     private intervention: Intervention;
-  constructor(private route: ActivatedRoute, private router: Router, private interventionService: InterventionService) {
+  constructor(private route: ActivatedRoute, private router: Router, private interventionService: InterventionService, private regRequestService: RegistrationRequestService) {
       this.intervention = new Intervention();
    }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(params => {
+        this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRequestRecord => {
+          this.regRequestRecord = regRequestRecord;
+        });
+      });
   }
 
   SubmitForm() {
