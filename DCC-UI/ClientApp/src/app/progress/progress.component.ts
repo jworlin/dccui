@@ -5,7 +5,6 @@ import { Audit } from '../domain/audit';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuditService } from '../services/audit-service';
 
-
 @Component({
   selector: 'app-progress',
   templateUrl: './progress.component.html',
@@ -24,11 +23,11 @@ export class ProgressComponent implements OnInit {
       .subscribe(params => {
         this.auditService.getAuditRequests(params['id']).subscribe(auditRequests => {
           this.auditRequests = auditRequests;
+          console.log(auditRequests);
         });
         this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRequestRecord => {
           this.regRequestRecord = regRequestRecord;
           this.checkStatus(status);
-          alert(this.regRequestRecord);
         });
       });
     
