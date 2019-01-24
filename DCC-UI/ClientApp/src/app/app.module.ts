@@ -13,6 +13,7 @@ import { CounterComponent } from "./counter/counter.component";
 import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { ProgressComponent } from "./progress/progress.component";
+import { InterventionComponent } from "./intervene/intervention.component";
 
 @NgModule({
   declarations: [
@@ -21,14 +22,16 @@ import { ProgressComponent } from "./progress/progress.component";
     CounterComponent,
     FetchDataComponent,
     NavMenuComponent,
-    ProgressComponent
+    ProgressComponent,
+    InterventionComponent
   ],
   imports: [HttpModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'intervention/:id', component: InterventionComponent }
     ]),
     RouterModule.forChild([
       { path: 'app-progress/:id', component: ProgressComponent }

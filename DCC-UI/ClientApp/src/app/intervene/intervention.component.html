@@ -1,0 +1,15 @@
+<form id="intervention-form">
+    <label>Registration Request Id</label>
+    <input type="text" [(ngModel)]="intervention.RegistrationRequestId" />
+    <br />
+    <label>RMP Id</label>
+    <input type="text" [(ngModel)]="intervention.RMPId" />
+    <br />
+    <label>Intervention Type</label>
+    <input type="text" [(ngModel)]="intervention.Type" />
+    <br />
+    <label>Reason</label>
+    <input type="text" [(ngModel)]="intervention.Reason" />
+    <br />
+    <button (click)="SubmitForm()">Submit Intervention</button>
+</form>
