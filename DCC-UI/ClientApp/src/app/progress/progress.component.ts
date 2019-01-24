@@ -3,6 +3,7 @@ import { RegistrationRequestService } from '../services/registration-request.ser
 import { RegistrationRequest } from '../domain/registration-requests';
 import { Audit } from '../domain/audit';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuditService } from '../services/audit-service';
 
 
 @Component({
@@ -16,12 +17,12 @@ export class ProgressComponent implements OnInit {
   progressValue = this.progressValue;
   showMessage: boolean = false;
 
-  constructor(private regRequestService: RegistrationRequestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private regRequestService: RegistrationRequestService, private auditService: AuditService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params
       .subscribe(params => {
-        this.regRequestService.getAuditRequests(params['id']).subscribe(auditRequests => {
+        this.auditService.getAuditRequests(params['id']).subscribe(auditRequests => {
           this.auditRequests = auditRequests;
         });
         this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRequestRecord => {
