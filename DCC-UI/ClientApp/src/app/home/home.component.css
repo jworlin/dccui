@@ -36,3 +36,16 @@ button {
   width:32px;
   height:32px;
 }
+
+.hidden {
+  visibility:hidden;
+}
+
+.visible {
+  visibility:visible;
+}
+
+.table-data {
+  word-break: break-all;
+  
+}

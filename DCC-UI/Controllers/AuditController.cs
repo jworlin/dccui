@@ -11,28 +11,18 @@ namespace DCC_UI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RegistrationRequestsController : ControllerBase
+    public class AuditController : ControllerBase
     {
         private const string ConnectionString = "Server=tcp:dccdb.database.windows.net,1433;Initial Catalog=DccDb;Persist Security Info=False;User ID=dccdb;Password=Pa$$w0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        [HttpGet("[action]")]
-        public IEnumerable<RegistrationRequests> GetAll()
+
+        [HttpGet("[action]/{id}")]
+        public IEnumerable<Audit> Audit(string id)
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var requests = connection.Query<RegistrationRequests>("SELECT * FROM RegistrationRequests");
+                var requests = connection.Query<Audit>("SELECT * FROM Audits WHERE RegistrationRequestId = @id", new { id });
                 return requests;
             }
         }
-
-        [HttpGet("{id}")]
-        public RegistrationRequests GetOne (string id)
-        {
-          using (var connection = new SqlConnection(ConnectionString))
-          {
-            var requests = connection.Query<RegistrationRequests>("SELECT * FROM RegistrationRequests WHERE Id = @id", new { id });
-            return requests.Single();
-          }
-        }
-
-	}
+    }
 }

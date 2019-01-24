@@ -1,69 +1,42 @@
-<div class="jumbotron">
-  <img src="../assets/images/logo.png" class="logo-img"  />
-  <h2>Example of Supplier Status Demo</h2>
-</div>
-<button type="button" (click)="setValue(); checkValue()" class="btn btn-primary">Submit Request</button>
-
-<h3>{{progressTitle}}</h3>
+<h3>Request Id: {{regRequestRecord.id}}</h3>
 <div class="panel panel-primary">
   <div class="panel-heading">Progress Status</div>
   <div class="panel-body">
     <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressValue">{{progressValue}}</div>
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="progressValue" [style.background-color]="progressBarColour">{{regRequestRecord.status}}</div>
     </div>
-    <div *ngIf="showMessage" class="approval"><img src="../assets/images/approval.png" class="complete-img" /><h3>Switch Completed!</h3></div>
+    <div class="status"><h4> Current Status: {{regRequestRecord.status}}</h4></div>
+    <div *ngIf="showMessageGreen" class="approval"><img src="../assets/images/approval.png" class="complete-img" /><h3>Switch Completed!</h3></div>
+    <div *ngIf="showMessageRed" class="rejection"><img src="../assets/images/rejection.png" class="complete-img" /><h3>Switch not Successful</h3></div>
   </div>
 </div>
-<div class="row">
-  <div class="my-col-count-style">
-    <div class="panel panel-default">
-      <div class="panel-heading">Gaining Supplier</div>
-      <div class="panel-body">
-        <div class="progress-title">
-          <p *ngIf="!registrationRequests"><em>Loading...</em></p>
-
-          <table class='table' *ngIf="registrationRequests">
-            <thead>
-              <tr>
-                <th>Created Date</th>
-                <th>Data</th>
-                <th>ID</th>
-                <th>Intervene Date</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let regRequest of registrationRequests">
-                <td>{{ regRequest.createdDate }}</td>
-                <td>{{ regRequest.data }}</td>
-                <td>{{ regRequest.id }}</td>
-                <td>{{ regRequest.interveneDate }}</td>
-                <td>{{regRequest.status}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">Gaining Shipper</div>
-      <div class="panel-body">
-        <div class="progress-title">{{gainingShipperLog}}</div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">Losing Shipper</div>
-      <div class="panel-body">
-        <div class="progress-title">{{losingShipperLog}}</div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">Losing Supplier</div>
-      <div class="panel-body">
-        <div class="progress-title">{{losingSupplierLog}}</div>
-      </div>
-    </div>
-
+<div class="panel panel-primary">
+  <div class="panel-heading">Audit trail</div>
+  <div class="panel-body">
+    <table class='table' *ngIf="auditRequests">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Request ID</th>
+          <th>Stage</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let auditRequest of auditRequests">
+          <td>{{ auditRequest.id }}</td>
+          <td>{{ auditRequest.registrationRequestId }}</td>
+          <td>{{ auditRequest.logicAppId }}</td>
+          <td>{{ auditRequest.status }}</td>
+          <td>{{ auditRequest.data }}</td>
+          <td>{{ auditRequest.eventAt }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+<button class="btn btn-primary" (click)="backToHome();">View All Requests</button>
+
 
