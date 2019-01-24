@@ -94,5 +94,10 @@ export class ProgressComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  interveneRequest(id: string) {
+    console.log(id);
+    this.router.navigate(['intervention/' + id]);
+
+  }
 
 }
