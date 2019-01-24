@@ -1,6 +1,6 @@
 export class Intervention {
     RegistrationRequestId: string;
     RmpId: number;
-    Type: string;
+    ObjectionType: string;
     Reason: string;
 }
