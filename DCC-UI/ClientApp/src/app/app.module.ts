@@ -14,6 +14,7 @@ import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { InterventionComponent } from "./intervene/intervention.component";
+import { InterventionService } from "./intervene/intervention.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { InterventionComponent } from "./intervene/intervention.component";
       { path: 'app-progress/:id', component: ProgressComponent }
     ])
   ],
-  providers: [RegistrationRequestService, AuditService],
+  providers: [RegistrationRequestService, AuditService, InterventionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

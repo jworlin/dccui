@@ -1,15 +1,15 @@
 <form id="intervention-form">
     <label>Registration Request Id</label>
-    <input type="text" [(ngModel)]="intervention.RegistrationRequestId" />
+    <input type="text" [(ngModel)]="intervention.RegistrationRequestId" name="RegistrationRequestId" />
     <br />
     <label>RMP Id</label>
-    <input type="text" [(ngModel)]="intervention.RMPId" />
+    <input type="text" [(ngModel)]="intervention.RMPId" name="RMPId"/>
     <br />
     <label>Intervention Type</label>
-    <input type="text" [(ngModel)]="intervention.Type" />
+    <input type="text" [(ngModel)]="intervention.Type" name="Type"/>
     <br />
     <label>Reason</label>
-    <input type="text" [(ngModel)]="intervention.Reason" />
+    <input type="text" [(ngModel)]="intervention.Reason" name="Reason"/>
     <br />
     <button (click)="SubmitForm()">Submit Intervention</button>
 </form>
