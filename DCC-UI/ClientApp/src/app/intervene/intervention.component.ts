@@ -18,11 +18,12 @@ export class InterventionComponent implements OnInit {
       this.intervention = new Intervention();
    }
 
+  options = ['objection','no objection'];
   ngOnInit() {
     this.route.params
       .subscribe(params => {
-        this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRequestRecord => {
-          this.regRequestRecord = regRequestRecord;
+        this.regRequestService.getRegistrationRecord(params['id']).subscribe(regRecord => {
+          this.intervention.RegistrationRequestId = regRecord.id;
         });
       });
   }
