@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 
 namespace DCCUI.Controllers
 {
+    [ApiController]
+    [Route("api/Intervention")]
     public class InterventionController : Controller
     {
         private const string StorageAccountConnectionString =
