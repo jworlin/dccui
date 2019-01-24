@@ -13,7 +13,7 @@ button {
   margin-right: 5px;
 }
 
-.approval {
+.approval, .rejection {
   text-align: center;
 }
 
