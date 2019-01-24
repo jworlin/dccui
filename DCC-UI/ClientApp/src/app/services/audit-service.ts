@@ -10,6 +10,6 @@ export class AuditService {
   constructor(private httpClient: Http, @Inject('BASE_URL') private baseUrl: string) { }
 
   getAuditRequests(id: string): Observable<Array<Audit>> {
-    return this.httpClient.get(this.baseUrl + 'api/RegistrationRequests/audit/' + id).pipe(map(res => <Array<Audit>>res.json()));
+    return this.httpClient.get(this.baseUrl + 'api/Audit/audit/' + id).pipe(map(res => <Array<Audit>>res.json()));
   }
 }
