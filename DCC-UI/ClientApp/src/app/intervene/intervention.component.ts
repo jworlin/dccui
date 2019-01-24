@@ -12,7 +12,8 @@ import { RegistrationRequest } from '../domain/registration-requests';
 })
 export class InterventionComponent implements OnInit {
     regRequestRecord: RegistrationRequest;
-    private intervention: Intervention;
+  private intervention: Intervention;
+  private message: string;
   constructor(private route: ActivatedRoute, private router: Router, private interventionService: InterventionService, private regRequestService: RegistrationRequestService) {
       this.intervention = new Intervention();
    }
@@ -27,7 +28,9 @@ export class InterventionComponent implements OnInit {
   }
 
   SubmitForm() {
+    this.message = "Intervention in progress";
     this.interventionService.intervene(this.intervention).subscribe(res => {
+      this.message = "Intervention complete";
     });
   }
 }
