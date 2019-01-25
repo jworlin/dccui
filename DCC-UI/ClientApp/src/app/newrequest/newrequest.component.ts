@@ -51,7 +51,8 @@ export class NewRequestComponent implements OnInit {
     let rmpid1 = new rmpid(1, "32, The Hill, Exeter");
     let rmpid2 = new rmpid(2, "Blue berry hill");
     let rmpid3 = new rmpid(3, "Place 1");
-    this.rmpids = [rmpid1, rmpid2, rmpid3];
+    let rmpid4 = new rmpid(4, "1 Demo Lane");
+    this.rmpids = [rmpid1, rmpid2, rmpid3, rmpid4];
   }
 
   initDate() {
