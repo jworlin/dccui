@@ -28,9 +28,12 @@
           <input type="text" [(ngModel)]="intervention.Reason" name="Reason" id="reason" style="width:100%" />
         </div>
       </div>
-      <button class="btn btn-primary" (click)="SubmitForm()">Submit Intervention</button>
+      <div class="form-group row button-row">
+        <button class="btn btn-primary " (click)="SubmitForm()">Submit Intervention</button>
+        <button class="btn btn-danger" (click)="backtoLast()">Return to Request</button>
+      </div>
       <div class="form-group row">
-        <label>{{message}}</label>
+        <label class="message">{{message}}</label>
       </div>
     </form>
   </div>
