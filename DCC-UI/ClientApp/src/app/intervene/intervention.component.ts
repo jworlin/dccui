@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { InterventionService } from './intervention.service';
 import { RegistrationRequestService } from '../services/registration-request.service';
 import { RegistrationRequest } from '../domain/registration-requests';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'intervention-request',
@@ -14,7 +15,7 @@ export class InterventionComponent implements OnInit {
     regRequestRecord: RegistrationRequest;
   private intervention: Intervention;
   private message: string;
-  constructor(private route: ActivatedRoute, private router: Router, private interventionService: InterventionService, private regRequestService: RegistrationRequestService) {
+  constructor(private route: ActivatedRoute, private router: Router, private interventionService: InterventionService, private regRequestService: RegistrationRequestService, private _location:Location) {
       this.intervention = new Intervention();
    }
 
@@ -35,4 +36,9 @@ export class InterventionComponent implements OnInit {
       this.message = "Intervention complete";
     });
   }
-}
+  backtoLast() {
+    this._location.back();
+    };
+  }
+
+
