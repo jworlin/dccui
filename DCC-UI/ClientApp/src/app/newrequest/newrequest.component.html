@@ -4,26 +4,32 @@
     <div class="reg-request">
 
       <form [formGroup]="newrequestForm" (ngSubmit)="onSubmit(newrequestForm)" class="newrequest-details" id="user-register-form">
-        <div class="col-md-6 newrequest-details">
-          <label for="supplierid" id="rmpid-label">Supplier</label>
-          <select id="supplierid" formControlName="supplierid">
-            <option *ngFor="let opt of suppliers" value="{{opt.id}}">{{opt.name}} {{opt.id}}</option>
-          </select>
+        <div class="form-group row newrequest-details">
+          <label for="supplierid" class="col-sm-2 col-form-label" id="rmpid-label">Supplier</label>
+          <div class="col-sm-10">
+            <select id="supplierid" formControlName="supplierid" style="width: 100%">
+              <option *ngFor="let opt of suppliers" value="{{opt.id}}">{{opt.name}} {{opt.id}}</option>
+            </select>
+          </div>
         </div>
 
-        <div class="col-md-6 newrequest-details">
-          <label for="rmpid" id="rmpid-label">Registered Metering Point</label>
-          <select id="rmpid" formControlName="rmpid">
-            <option *ngFor="let opt of rmpids" value="{{opt.id}}">{{opt.address}} {{opt.id}}</option>
-          </select>
+        <div class="form-group row newrequest-details">
+          <label class="col-sm-2 col-form-label" for="rmpid" id="rmpid-label">Registered Metering Point</label>
+          <div class="col-sm-10">
+            <select id="rmpid" formControlName="rmpid" style="width: 100%">
+              <option *ngFor="let opt of rmpids" value="{{opt.id}}">{{opt.address}} {{opt.id}}</option>
+            </select>
+          </div>
         </div>
 
-  <div class="col-md-6 newrequest-details">
-    <label for="switchDate" id="effectiveFromDate-label">Switch Date</label>
-    <input type="date" id="switchDate" formControlName="switchDate" value="2013-01-08">
-  </div>
+        <div class="form-group row newrequest-details">
+          <label class="col-sm-2 col-form-label" for="switchDate" id="effectiveFromDate-label">Switch Date</label>
+          <div class="col-sm-10">
+            <input type="date" id="switchDate" formControlName="switchDate" value="2013-01-08" style="width: 100%">
+          </div>
+        </div>
 
-        <input type="submit" class="btn btn-primary" title="Submit Request" value="Submit Request" />
+          <input type="submit" class="btn btn-primary" title="Submit Request" value="Submit Request" />
       </form>
     </div>
   </div>
