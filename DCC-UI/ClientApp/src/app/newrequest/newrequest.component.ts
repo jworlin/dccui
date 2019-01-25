@@ -77,8 +77,9 @@ export class NewRequestComponent implements OnInit {
     this.newrequestForm.controls.switchDate.setValue(this.initDate());
   }
 
-  onSubmit(value: RegistrationRequestSubmission) {
-    this.regRequestService.postRegistrationRequest(value);
+  onSubmit(value: any) {
+    let registrationRequestSubmission = value as RegistrationRequestSubmission;
+    this.regRequestService.postRegistrationRequest(registrationRequestSubmission);
     this.confirmWithRediect();
   }
 
