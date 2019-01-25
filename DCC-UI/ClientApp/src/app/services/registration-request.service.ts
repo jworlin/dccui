@@ -15,8 +15,7 @@ export class RegistrationRequestService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
-    let body ={"supplierId": 1,"rmpId": 1, "switchDate": ""};
-    //JSON.stringify(value);
+
     try {
       let body = JSON.stringify(value['value']);
       this.httpClient.post(this.baseUrl + 'api/RegistrationRequests/', body, options).subscribe(res => res.json());
