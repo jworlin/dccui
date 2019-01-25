@@ -13,6 +13,8 @@ import { CounterComponent } from "./counter/counter.component";
 import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { ProgressComponent } from "./progress/progress.component";
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationService } from './services/notifications.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ProgressComponent } from "./progress/progress.component";
     CounterComponent,
     FetchDataComponent,
     NavMenuComponent,
-    ProgressComponent
+    ProgressComponent,
+    NotificationsComponent
   ],
   imports: [HttpModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,7 +37,7 @@ import { ProgressComponent } from "./progress/progress.component";
       { path: 'app-progress/:id', component: ProgressComponent }
     ])
   ],
-  providers: [RegistrationRequestService, AuditService],
+  providers: [RegistrationRequestService, AuditService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
