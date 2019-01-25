@@ -1,7 +1,9 @@
 
 <div class="panel panel-primary">
+  <button class="btn btn-primary" (click)="newRequest();">New Request</button>
   <div class="panel-heading">Current Registration Requests</div>
   <div class="panel-body">
+
     <div class="reg-requests">
       <p *ngIf="!registrationRequests"><em>Loading...</em></p>
 
@@ -25,7 +27,7 @@
           </tbody>
         </table>
       </div>
-    </div>
   </div>
+</div>
 
  

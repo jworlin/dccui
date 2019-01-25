@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\domain\audit.ts" />
+    <None Remove="ClientApp\src\app\domain\registrationRequestSubmission.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +39,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\domain\audit.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\domain\registrationRequestSubmission.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

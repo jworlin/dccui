@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Sumbit Registration Request</div>
+  <div class="panel-body">
+    <div class="reg-request">
+
+      <form [formGroup]="newrequestForm" (ngSubmit)="onSubmit(newrequestForm)" class="newrequest-details" id="user-register-form">
+        <div class="col-md-6 newrequest-details">
+          <label for="supplierid" id="rmpid-label">Supplier</label>
+          <select id="supplierid" formControlName="supplierid">
+            <option *ngFor="let opt of suppliers" value="{{opt.id}}">{{opt.name}} {{opt.id}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 newrequest-details">
+          <label for="rmpid" id="rmpid-label">Registered Metering Point</label>
+          <select id="rmpid" formControlName="rmpid">
+            <option *ngFor="let opt of rmpids" value="{{opt.id}}">{{opt.address}} {{opt.id}}</option>
+          </select>
+        </div>
+
+  <div class="col-md-6 newrequest-details">
+    <label for="switchDate" id="effectiveFromDate-label">Switch Date</label>
+    <input type="date" id="switchDate" formControlName="switchDate" value="2013-01-08">
+  </div>
+
+        <input type="submit" class="btn btn-primary" title="Submit Request" value="Submit Request" />
+      </form>
+    </div>
+  </div>
+</div>

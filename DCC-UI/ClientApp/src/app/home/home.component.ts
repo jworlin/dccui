@@ -20,9 +20,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  newRequest() {
+    this.router.navigate(['app-newrequest/']);
+  }
+
   showRequest(id: string) {
     this.router.navigate(['app-progress/' + id]);
-
   }
 }
 
