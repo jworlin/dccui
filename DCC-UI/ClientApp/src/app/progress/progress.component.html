@@ -8,8 +8,10 @@
     <div class="status"><h4> Current Status: {{regRequestRecord.status}}</h4></div>
     <div *ngIf="showMessageGreen" class="approval"><img src="../assets/images/approval.png" class="complete-img" /><h3>Switch Completed!</h3></div>
     <div *ngIf="showMessageRed" class="rejection"><img src="../assets/images/rejection.png" class="complete-img" /><h3>Switch not Successful</h3></div>
+    <div *ngIf="showButton" class="intervene"><button class="btn btn-danger" (click)="interveneRequest(regRequestRecord.id);">Intervene</button></div>
   </div>
 </div>
+<app-notifications></app-notifications>
 <div class="panel panel-primary">
   <div class="panel-heading">Audit trail</div>
   <div class="panel-body">
@@ -30,7 +32,7 @@
           <td>{{ auditRequest.registrationRequestId }}</td>
           <td>{{ auditRequest.logicAppId }}</td>
           <td>{{ auditRequest.status }}</td>
-          <td>{{ auditRequest.data }}</td>
+          <td class="table-data">{{ auditRequest.data }}</td>
           <td>{{ auditRequest.eventAt }}</td>
         </tr>
       </tbody>
@@ -38,5 +40,7 @@
   </div>
 </div>
 <button class="btn btn-primary" (click)="backToHome();">View All Requests</button>
+
+
 
 

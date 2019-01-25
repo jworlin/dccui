@@ -1,0 +1,40 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Register Intervention</div>
+  <div class="panel-body">
+    <form id="intervention-form">
+      <div class="form-group row">
+        <label for="regRequestId" class="col-sm-2 col-form-label">Registration Request Id</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="intervention.RegistrationRequestId" name="RegistrationRequestId" id="regRequestId" style="width:100%" /> 
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="RMPId" class="col-sm-2 col-form-label">RMP Id</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="intervention.RmpId" name="RMPId" id="RMPId" style="width:100%" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="intType" class="col-sm-2 col-form-label">Intervention Type</label>
+        <div class="col-sm-10">
+          <select [(ngModel)]="intervention.ObjectionType" name="ObjectionType" id="ObjectionType" style="width: 100%">
+            <option [value]="option" *ngFor="let option of options">{{option}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="reason" class="col-sm-2 col-form-label">Reason</label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="intervention.Reason" name="Reason" id="reason" style="width:100%" />
+        </div>
+      </div>
+      <div class="form-group row button-row">
+        <button class="btn btn-primary " (click)="SubmitForm()">Submit Intervention</button>
+        <button class="btn btn-danger" (click)="backtoLast()">Return to Request</button>
+      </div>
+      <div class="form-group row">
+        <label class="message">{{message}}</label>
+      </div>
+    </form>
+  </div>
+</div>
