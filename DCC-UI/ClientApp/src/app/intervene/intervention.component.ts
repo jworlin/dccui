@@ -13,8 +13,8 @@ import { Location } from '@angular/common';
 })
 export class InterventionComponent implements OnInit {
     regRequestRecord: RegistrationRequest;
-  private intervention: Intervention;
-  private message: string;
+  intervention: Intervention;
+  message: string;
   constructor(private route: ActivatedRoute, private router: Router, private interventionService: InterventionService, private regRequestService: RegistrationRequestService, private _location:Location) {
       this.intervention = new Intervention();
    }
