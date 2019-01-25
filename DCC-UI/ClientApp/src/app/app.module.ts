@@ -15,6 +15,8 @@ import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NotificationService } from './services/notifications.service';
+import { InterventionComponent } from "./intervene/intervention.component";
+import { InterventionService } from "./intervene/intervention.service";
 
 @NgModule({
   declarations: [
@@ -24,20 +26,23 @@ import { NotificationService } from './services/notifications.service';
     FetchDataComponent,
     NavMenuComponent,
     ProgressComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    ProgressComponent,
+    InterventionComponent
   ],
   imports: [HttpModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'intervention/:id', component: InterventionComponent }
     ]),
     RouterModule.forChild([
       { path: 'app-progress/:id', component: ProgressComponent }
     ])
   ],
-  providers: [RegistrationRequestService, AuditService, NotificationService],
+    providers: [RegistrationRequestService, AuditService, InterventionService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
