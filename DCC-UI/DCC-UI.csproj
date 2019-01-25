@@ -30,7 +30,11 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\domain\audit.ts" />
+    <None Remove="ClientApp\src\app\domain\registered-meter-point.ts" />
     <None Remove="ClientApp\src\app\domain\registrationRequestSubmission.ts" />
+    <None Remove="ClientApp\src\app\domain\supplier.ts" />
+    <None Remove="ClientApp\src\app\services\registered-meter-point.service.ts" />
+    <None Remove="ClientApp\src\app\services\suppliers.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,7 +43,11 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\domain\audit.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\domain\registered-meter-point.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\domain\registrationRequestSubmission.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\domain\supplier.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\registered-meter-point.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\suppliers.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -18,6 +18,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { NotificationService } from './services/notifications.service';
 import { InterventionComponent } from "./intervene/intervention.component";
 import { InterventionService } from "./intervene/intervention.service";
+import { SupplierService } from "./services/suppliers.service";
+import { RegisteredMeterPointService } from "./services/registered-meter-point.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +48,7 @@ import { InterventionService } from "./intervene/intervention.service";
       { path: 'app-newrequest', component: NewRequestComponent }
     ])
   ],
-    providers: [RegistrationRequestService, AuditService, InterventionService, NotificationService],
+  providers: [RegistrationRequestService, AuditService, InterventionService, NotificationService, RegisteredMeterPointService, SupplierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
