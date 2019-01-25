@@ -2,28 +2,24 @@
   <div class="panel-heading">Sumbit Registration Request</div>
   <div class="panel-body">
     <div class="reg-request">
-      
+
       <form [formGroup]="newrequestForm" (ngSubmit)="onSubmit(newrequestForm)" class="newrequest-details" id="user-register-form">
         <div class="col-md-6 newrequest-details">
-          <label for="supplier" id="supplier-label">Supplier</label>
-          <select name="supplier">
-            <option value="1">EON Energy</option>
-            <option value="2">Northern Gas Networks</option>
-          </select>
-        </div>
-        <div class="col-md-6 newrequest-details">
-          <label for="rmpid" id="rmpid-label">Supplier</label>
-          <select name="rmpid">
-            <option value="1">32, The Hill, Exeter,</option>
-            <option value="2">Blue berry hill</option>
-            <option value="3">Place 1</option>
+          <select id="supplierid" formControlName="supplierid">
+            <option *ngFor="let opt of suppliers" value="{{opt.id}}">{{opt.name}} {{opt.id}}</option>
           </select>
         </div>
 
         <div class="col-md-6 newrequest-details">
-          <label for="switchDate" id="effectiveFromDate-label">Effective From Date</label>
-          <input type="date" id="switchDate" formControlName="switchDate" value="2013-01-08">
-        </div>
+          <select id="rmpid" formControlName="rmpid">
+      <option *ngFor="let opt of rmpids" value="{{opt.id}}">{{opt.address}} {{opt.id}}</option>
+    </select>
+  </div>
+
+  <div class="col-md-6 newrequest-details">
+    <label for="switchDate" id="effectiveFromDate-label">Switch Date</label>
+    <input type="date" id="switchDate" formControlName="switchDate" value="2013-01-08">
+  </div>
 
         <input type="submit" class="btn btn-primary" title="Submit Request" value="Submit Request" />
       </form>

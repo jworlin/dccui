@@ -12,12 +12,15 @@ export class RegistrationRequestService {
   constructor(private httpClient: Http, @Inject('BASE_URL') private baseUrl: string) { }
 
   async postRegistrationRequest(value: RegistrationRequestSubmission) {
+    let registrationRequestSubmission = value['value'] as RegistrationRequestSubmission;
+    registrationRequestSubmission.switchDate += " " + new Date().toJSON().slice(11, 19);
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let options = new RequestOptions({ headers: headers });
 
     try {
-      let body = JSON.stringify(value['value']);
+      let body = JSON.stringify(registrationRequestSubmission);
       this.httpClient.post(this.baseUrl + 'api/RegistrationRequests/', body, options).subscribe(res => res.json());
     } catch (e) {
       var x = e;
