@@ -12,7 +12,7 @@ namespace DCC_UI.Controllers
 {
     [Route("api/notifications/for")]
     [ApiController]
-    public class NotificationsSentController : ControllerBase
+    public partial class NotificationsSentController : ControllerBase
     {
         private const string ConnectionString = "Server=tcp:dccdb.database.windows.net,1433;Initial Catalog=DccDb;Persist Security Info=False;User ID=dccdb;Password=Pa$$w0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
@@ -29,24 +29,6 @@ namespace DCC_UI.Controllers
 
                 return notifications;
             }
-        }
-
-        public class Notification
-        {
-            public int Id { get; set; }
-            public string Receiver { get; set; }
-
-            [JsonProperty("SupplierId")]
-            public int Supplier_Id { get; set; }
-
-            [JsonProperty("RMPId")]
-            public int RMP_Id { get; set; }
-        }
-
-        public class RegistrationRequestData
-        {
-            [JsonProperty("supplyMeterPointReferenceNumber")]
-            public int RmpId { get; set; }
         }
     }
 }
