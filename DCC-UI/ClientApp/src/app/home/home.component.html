@@ -1,33 +1,35 @@
 
 <div class="panel panel-primary">
+  <button class="btn btn-primary" (click)="newRequest();">New Request</button>
   <div class="panel-heading">Current Registration Requests</div>
   <div class="panel-body">
+
     <div class="reg-requests">
       <p *ngIf="!registrationRequests"><em>Loading...</em></p>
 
       <table class='table' *ngIf="registrationRequests">
-          <thead>
-            <tr>
-              <th>Created Date</th>
-              <th>Data</th>
-              <th>ID</th>
-              <th>Intervene Date</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let regRequest of registrationRequests">
-              <td>{{ regRequest.createdDate }}</td>
-              <td class="table-data">{{ regRequest.data }}</td>
-              <td>{{ regRequest.id }}</td>
-              <td>{{ regRequest.interveneDate }}</td>
-              <td>{{ regRequest.status }}</td>
-              <td><button class="btn btn-primary" (click)="showRequest(regRequest.id);" >View Request</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <thead>
+          <tr>
+            <th>Created Date</th>
+            <th>Data</th>
+            <th>ID</th>
+            <th>Intervene Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let regRequest of registrationRequests">
+            <td>{{ regRequest.createdDate }}</td>
+            <td class="table-data">{{ regRequest.data }}</td>
+            <td>{{ regRequest.id }}</td>
+            <td>{{ regRequest.interveneDate }}</td>
+            <td>{{ regRequest.status }}</td>
+            <td><button class="btn btn-primary" (click)="showRequest(regRequest.id);">View Request</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 
  

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -13,6 +13,7 @@ import { CounterComponent } from "./counter/counter.component";
 import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { ProgressComponent } from "./progress/progress.component";
+import { NewRequestComponent } from "./newrequest/newrequest.component";
 
 @NgModule({
   declarations: [
@@ -21,17 +22,20 @@ import { ProgressComponent } from "./progress/progress.component";
     CounterComponent,
     FetchDataComponent,
     NavMenuComponent,
-    ProgressComponent
+    ProgressComponent,
+    NewRequestComponent
   ],
   imports: [HttpModule,
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ]),
     RouterModule.forChild([
-      { path: 'app-progress/:id', component: ProgressComponent }
+      { path: 'app-progress/:id', component: ProgressComponent },
+      { path: 'app-newrequest', component: NewRequestComponent }
     ])
   ],
   providers: [RegistrationRequestService, AuditService],

@@ -19,6 +19,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="WindowsAzure.Storage" Version="7.2.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\domain\audit.ts" />
+    <None Remove="ClientApp\src\app\domain\registrationRequestSubmission.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +39,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\domain\audit.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\domain\registrationRequestSubmission.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
