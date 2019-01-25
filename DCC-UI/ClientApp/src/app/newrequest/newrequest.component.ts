@@ -9,15 +9,6 @@ import { RegistrationRequestSubmission } from '../domain/registrationRequestSubm
 import { supplier } from '../domain/supplier';
 import { registeredMeterPoint } from '../domain/registered-meter-point';
 
-class rmpid{
-  id: number;
-  address: string;
-
-  constructor(id: number, address: string) {
-    Object.assign(this, { id, address });
-  } 
-}
-
 @Component({
   selector: 'app-newrequest',
   templateUrl: './newrequest.component.html',
@@ -75,14 +66,13 @@ export class NewRequestComponent implements OnInit {
     });    
   }
 
-
-
   onSubmit(value: any) {
     let registrationRequestSubmission = value as RegistrationRequestSubmission;
     this.regRequestService.postRegistrationRequest(registrationRequestSubmission);
     this.confirmWithRediect();
   }
 
+  //// TODO SP-71: Replace with notification, or similar.
   confirmWithRediect() {
     window.alert("Request Submitted, returning to home page");
     this.router.navigate(['/']);
