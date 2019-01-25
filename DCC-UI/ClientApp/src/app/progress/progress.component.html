@@ -11,6 +11,7 @@
     <div *ngIf="showButton" class="intervene"><button class="btn btn-danger" (click)="interveneRequest(regRequestRecord.id);">Intervene</button></div>
   </div>
 </div>
+<app-notifications></app-notifications>
 <div class="panel panel-primary">
   <div class="panel-heading">Audit trail</div>
   <div class="panel-body">
@@ -39,5 +40,7 @@
   </div>
 </div>
 <button class="btn btn-primary" (click)="backToHome();">View All Requests</button>
+
+
 
 

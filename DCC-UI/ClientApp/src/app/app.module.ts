@@ -13,6 +13,8 @@ import { CounterComponent } from "./counter/counter.component";
 import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { ProgressComponent } from "./progress/progress.component";
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationService } from './services/notifications.service';
 import { InterventionComponent } from "./intervene/intervention.component";
 import { InterventionService } from "./intervene/intervention.service";
 
@@ -23,6 +25,8 @@ import { InterventionService } from "./intervene/intervention.service";
     CounterComponent,
     FetchDataComponent,
     NavMenuComponent,
+    ProgressComponent,
+    NotificationsComponent,
     ProgressComponent,
     InterventionComponent
   ],
@@ -38,7 +42,7 @@ import { InterventionService } from "./intervene/intervention.service";
       { path: 'app-progress/:id', component: ProgressComponent }
     ])
   ],
-  providers: [RegistrationRequestService, AuditService, InterventionService],
+    providers: [RegistrationRequestService, AuditService, InterventionService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
