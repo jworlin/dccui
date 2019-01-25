@@ -12,7 +12,7 @@ namespace DCC_UI.Controllers
 {
     [Route("api/notifications/for")]
     [ApiController]
-    public partial class NotificationsSentController : ControllerBase
+    public class NotificationsSentController : ControllerBase
     {
         private const string ConnectionString = "Server=tcp:dccdb.database.windows.net,1433;Initial Catalog=DccDb;Persist Security Info=False;User ID=dccdb;Password=Pa$$w0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
