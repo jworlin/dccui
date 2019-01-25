@@ -40,3 +40,7 @@ button {
 button {
   margin-bottom:10px;
 }
+
+.table-data {
+  word-break: break-all;
+}
